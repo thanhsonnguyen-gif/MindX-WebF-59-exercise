@@ -14,10 +14,12 @@ const newStudent = {
   gender: "Female",
 };
 
-students["data"][0]["id"] = 1; //update
+students["data"][0]["id"] = 29999; //update
 
-students["data"].push(newStudent); //add
+// students["data"].push(newStudent); //add
 
-students["data"].splice(1, 1) //delete
+// students["data"].splice(1, 1) //delete
 
 fs.writeFileSync("./student.json", JSON.stringify(students)); //ghi 1 lan
+
+console.log(students);

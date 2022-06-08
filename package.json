@@ -1,0 +1,25 @@
+{
+  "name": "mindx-webf-59",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "start:dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thanhsonnguyen-gif/MindX-WebF-59.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thanhsonnguyen-gif/MindX-WebF-59/issues"
+  },
+  "homepage": "https://github.com/thanhsonnguyen-gif/MindX-WebF-59#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16"
+  }
+}
