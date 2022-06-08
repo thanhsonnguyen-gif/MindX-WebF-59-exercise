@@ -46,7 +46,6 @@ teacherRouter.put("/:index", (req, res) => {
   res.status(202);
   res.json(teachers);
 });
-module.exports = teacherRouter;
 
 //DELETE
 teacherRouter.delete("/", (req, res) => {
@@ -54,3 +53,5 @@ teacherRouter.delete("/", (req, res) => {
   res.status(203);
   res.json(teachers);
 });
+
+module.exports = teacherRouter;

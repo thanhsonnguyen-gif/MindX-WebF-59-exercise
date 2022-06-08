@@ -23,11 +23,11 @@ studentRouter.get("/", (req, res) => {
 });
 
 studentRouter.post("/", (req, res) => {
-    const {id, name}=req.body;
-student.push({
+  const { id, name } = req.body;
+  student.push({
     id, //id: req.body.id
-    name //name: req.body.name
-})
+    name, //name: req.body.name
+  });
   res.status(201);
   res.json(student);
 });
