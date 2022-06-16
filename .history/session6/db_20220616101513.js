@@ -1,8 +1,6 @@
-const { required } = require("nodemon/lib/config");
-
-const { MongoClient } = required("mongodb");
+const { MongoClient } = require ('mongo')
 const url = "mongodb://localhost:27017";
-const client = new MongoClient(url);
+const client = new MongoClient(url)
 const dbName = "School_Management";
 const db = {};
 
@@ -14,4 +12,4 @@ async function connectToDb() {
   return "done!";
 }
 
-module.exports = { connectToDb, db };
+module.exports = { connectToDb, db}
