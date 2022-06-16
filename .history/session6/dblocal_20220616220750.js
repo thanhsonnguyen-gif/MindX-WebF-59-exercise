@@ -10,7 +10,7 @@ async function connectToDb() {
   console.log("connect success!");
   const database = client.db(dbName);
   // db.students = database.collection("student_Infor");
-  db.persons = database.collection("Persons");
+  db.students = database.collection("Persons");
 
   return "done!";
 }
