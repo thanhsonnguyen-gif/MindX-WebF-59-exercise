@@ -7,7 +7,7 @@ router.post("/login", async (req, res) => {
   // Step 2: Run login's logic
   try {
     const userIslogged = await AuthCtrl.login(
-      req.body._id,
+      req.body.username,
       req.body.password,
     );
     res.json(userIslogged);
@@ -23,11 +23,12 @@ router.post("/register", async (req, res) => {
   }
   // 2.run logic in register stage
   try {
-    const infoOfPasswordUserRegistered = await AuthCtrl.register(
-      req.body._id,
+    const infoOfUserRegistered = await AuthCtrl.register(
+      req.body.username,
+      req.body.email,
       req.body.password,
     );
-    res.json(infoOfPasswordUserRegistered);
+    res.json(infoOfUserRegistered);
   } catch (err) {
     res.status(409).send(err.message);
   }

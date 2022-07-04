@@ -14,7 +14,7 @@ const AuthMdw = (req, res, next) => {
       
     } else {
       const user = await findByUserId(decodeInfo.userID);
-      console.log(decodeInfo, user)
+      console.log(decodeInfo)
       req.user = user;
       next();
     }

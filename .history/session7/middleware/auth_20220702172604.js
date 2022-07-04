@@ -11,10 +11,8 @@ const AuthMdw = (req, res, next) => {
   jwt.verify(token, "MY_PRIMATE_KEY", async (err, decodeInfo) => {
     if (err) {
       res.status(401).send("Invalid token");
-      
     } else {
       const user = await findByUserId(decodeInfo.userID);
-      console.log(decodeInfo, user)
       req.user = user;
       next();
     }

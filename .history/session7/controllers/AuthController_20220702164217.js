@@ -1,4 +1,7 @@
-const { insertPasswordUser, findByUserId } = require("../databases/userData");
+const {
+  insertPasswordUser,
+  findByUserId,
+} = require("../databases/userData");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 
@@ -29,25 +32,20 @@ const register = async (_id, password) => {
       "User is not existed, connecting to the school'admin to get the information back",
     );
   }
-  if (userExisted.isActivate == true) {
-    console.log(userExisted.isActivate);
-    throw new Error("User is activated, should login, can't reactivate");
+  if (userExisted.isActivate ==true) {
+    throw new Error(
+      "User is activated, should login, can't reactivate",
+    );
   }
-  if (userExisted.isActivate == undefined) {
-    //Step 2: Encrypt the password
-    const { salt, hashedPassword } = EncryptPassword(password);
-    //Step 3: Store inside databases
-    const reports = await insertPasswordUser(userExisted._id, {
-      salt: salt,
-      hashedPassword: hashedPassword,
-      isActivate: true,
-    });
-
-    if (reports.acknowledged == true) {
-      const userWithPassword = await findByUserId(_id);
-      return userWithPassword;
-    }
-  }
+  //Step 2: Encrypt the password
+  const { salt, hashedPassword } = EncryptPassword(password);
+  //Step 3: Store inside databases
+  await insertPasswordUser(userExisted._id, {
+    salt: salt,
+    hashedPassword: hashedPassword,
+    isActivate: true,
+  });
+  return userExisted;
 };
 
 const EncryptPassword = (password) => {

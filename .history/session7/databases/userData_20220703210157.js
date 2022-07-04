@@ -13,7 +13,7 @@ const findByUserId = async (_id) => {
 };
 
 const insertPasswordUser = async (_id, comboPassword) => {
-  const reports = await db.users.updateOne(
+  const userWithPassword = await db.users.updateOne(
     {
       _id: ObjectId(_id),
     },
@@ -21,7 +21,7 @@ const insertPasswordUser = async (_id, comboPassword) => {
       $set: comboPassword,
     },
   );
-  return reports;
+  return userWithPassword;
 };
 
 const getUser = async () => {

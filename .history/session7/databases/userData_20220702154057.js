@@ -1,5 +1,5 @@
 const { db } = require("./");
-const { ObjectId } = require("mongodb");
+const {ObjectId} = require("mongodb");
 
 const findByUsername = async (username) => {
   const user = await db.users.findOne({ Name: username });
@@ -12,16 +12,9 @@ const findByUserId = async (_id) => {
   return user;
 };
 
-const insertPasswordUser = async (_id, comboPassword) => {
-  const reports = await db.users.updateOne(
-    {
-      _id: ObjectId(_id),
-    },
-    {
-      $set: comboPassword,
-    },
-  );
-  return reports;
+const insertPasswordUser = async (user) => {
+  await db.users.insertOne(user);
+  return user;
 };
 
 const getUser = async () => {

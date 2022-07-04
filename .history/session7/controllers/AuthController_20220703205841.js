@@ -33,20 +33,16 @@ const register = async (_id, password) => {
     console.log(userExisted.isActivate);
     throw new Error("User is activated, should login, can't reactivate");
   }
+  //Step 2: Encrypt the password
   if (userExisted.isActivate == undefined) {
-    //Step 2: Encrypt the password
     const { salt, hashedPassword } = EncryptPassword(password);
     //Step 3: Store inside databases
-    const reports = await insertPasswordUser(userExisted._id, {
+    const userWithPassword = await insertPasswordUser(userExisted._id, {
       salt: salt,
       hashedPassword: hashedPassword,
       isActivate: true,
     });
-
-    if (reports.acknowledged == true) {
-      const userWithPassword = await findByUserId(_id);
-      return userWithPassword;
-    }
+    return userWithPassword;
   }
 };
 

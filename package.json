@@ -20,6 +20,6 @@
   "homepage": "https://github.com/thanhsonnguyen-gif/MindX-WebF-59#readme",
   "dependencies": {
     "express": "^4.18.1",
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.18"
   }
 }

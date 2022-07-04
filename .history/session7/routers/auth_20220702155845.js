@@ -7,7 +7,7 @@ router.post("/login", async (req, res) => {
   // Step 2: Run login's logic
   try {
     const userIslogged = await AuthCtrl.login(
-      req.body._id,
+      req.body.username,
       req.body.password,
     );
     res.json(userIslogged);
