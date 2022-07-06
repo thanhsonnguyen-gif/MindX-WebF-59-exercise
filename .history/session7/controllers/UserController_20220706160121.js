@@ -5,7 +5,6 @@ const {
   countOfUsers,
   insertUser,
   updateUserById,
-  deleteUserById,
 } = require("../databases/userData");
 
 const usersGetAll = async () => {
@@ -41,11 +40,6 @@ const updateUserInfo = async (_id, infoUpdate) => {
   return UserUpdated;
 };
 
-const deleteUser = async (id) => {
-  const infoDelete = await deleteUserById(id);
-  return infoDelete;
-};
-
 module.exports = {
   usersGetAll,
   userGetById,
@@ -53,5 +47,4 @@ module.exports = {
   countUsers,
   InsertUser,
   updateUserInfo,
-  deleteUser
 };

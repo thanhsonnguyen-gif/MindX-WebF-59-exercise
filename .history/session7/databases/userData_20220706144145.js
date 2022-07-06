@@ -30,32 +30,13 @@ const getUser = async () => {
 };
 
 const countOfUsers = async () => {
-  const countUsers = await db.users.countDocuments();
+  const countUsers = await db.users.countDocument();
   return countUsers;
 };
 
 const insertUser = async (infoObject) => {
   const userInserted = await db.users.insertOne(infoObject);
   return userInserted;
-};
-
-const updateUserById = async (_id, infoUpdate) => {
-  const reports = await db.users.updateOne(
-    {
-      _id: ObjectId(_id),
-    },
-    {
-      $set: infoUpdate,
-    },
-  );
-  return reports;
-};
-
-const deleteUserById = async (id) => {
-  const report = await db.users.deleteOne({
-    _id: ObjectId(id),
-  });
-  return report;
 };
 module.exports = {
   findByUsername,
@@ -64,6 +45,4 @@ module.exports = {
   findByUserId,
   countOfUsers,
   insertUser,
-  updateUserById,
-  deleteUserById,
 };

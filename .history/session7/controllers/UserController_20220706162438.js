@@ -5,7 +5,6 @@ const {
   countOfUsers,
   insertUser,
   updateUserById,
-  deleteUserById,
 } = require("../databases/userData");
 
 const usersGetAll = async () => {

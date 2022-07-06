@@ -96,23 +96,29 @@ router.post("/", AuthMdw, requiteAdmin, async (req, res) => {
 });
 
 router.put("/", AuthMdw, requiteAdmin, async (req, res) => {
-  const id = req.headers._id
-  const infoNeedUpdate = req.body
-  const user = await UserCtrl.updateUserInfo(id, infoNeedUpdate)
-  if (!user) {
-    throw new Error("Database isn't updated");
+  const users = await UserCtrl.usersGetAll(req.user);
+  //   try {
+  //     res.json(users);
+  //   } catch (err) {
+  //     res.status(403).send("Your don't have permission");
+  //   }
+  if (!users) {
+    throw new Error("Database users is entry");
   }
-  const infoUserUpdated = await UserCtrl.userGetById(id);
-  res.json(infoUserUpdated);
+  res.json(users);
 });
 
 router.delete("/", AuthMdw, requiteAdmin, async (req, res) => {
-  const id = req.headers._id
-  const user = await UserCtrl.deleteUser(id)
-  if (!user) {
-    throw new Error("Database isn't delete");
+  const users = await UserCtrl.usersGetAll(req.user);
+  //   try {
+  //     res.json(users);
+  //   } catch (err) {
+  //     res.status(403).send("Your don't have permission");
+  //   }
+  if (!users) {
+    throw new Error("Database users is entry");
   }
-  res.json(user);
+  res.json(users);
 });
 
 module.exports = router;

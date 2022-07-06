@@ -50,13 +50,6 @@ const updateUserById = async (_id, infoUpdate) => {
   );
   return reports;
 };
-
-const deleteUserById = async (id) => {
-  const report = await db.users.deleteOne({
-    _id: ObjectId(id),
-  });
-  return report;
-};
 module.exports = {
   findByUsername,
   insertPasswordUser,
@@ -65,5 +58,4 @@ module.exports = {
   countOfUsers,
   insertUser,
   updateUserById,
-  deleteUserById,
 };

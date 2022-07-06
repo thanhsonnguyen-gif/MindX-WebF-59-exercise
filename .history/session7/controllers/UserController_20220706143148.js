@@ -3,9 +3,6 @@ const {
   findByUserId,
   findByUsername,
   countOfUsers,
-  insertUser,
-  updateUserById,
-  deleteUserById,
 } = require("../databases/userData");
 
 const usersGetAll = async () => {
@@ -31,27 +28,4 @@ const countUsers = async () => {
   return countUsers;
 };
 
-const InsertUser = async (infos) => {
-  const UserInserted = await insertUser(infos);
-  return UserInserted;
-};
-
-const updateUserInfo = async (_id, infoUpdate) => {
-  const UserUpdated = await updateUserById(_id, infoUpdate);
-  return UserUpdated;
-};
-
-const deleteUser = async (id) => {
-  const infoDelete = await deleteUserById(id);
-  return infoDelete;
-};
-
-module.exports = {
-  usersGetAll,
-  userGetById,
-  userGetByName,
-  countUsers,
-  InsertUser,
-  updateUserInfo,
-  deleteUser
-};
+module.exports = { usersGetAll, userGetById, userGetByName, countUsers };
