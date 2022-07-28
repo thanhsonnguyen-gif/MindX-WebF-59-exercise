@@ -1,0 +1,1 @@
+ReactDom.render(<h2>hello from index,js</h2>, document.getElementById('roof'))

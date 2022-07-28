@@ -1,0 +1,2 @@
+-props la propeties cua 1 component tu dev dinh nghia
+- Với React bạn không nên thao tác trực tiếp với các đối tượng state, thay vào đó, bạn cần tạo ra một đối tượng state hoàn toàn mới bất cứ khi nào bạn muốn cập nhật state. Điều này cực kỳ quan quạng với React
